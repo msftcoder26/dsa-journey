@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/Vidisha Karn/OneDrive/My Code/STIVER SHEET/WEEK 2/DAY 1",
+      "program": "c:/Users/Vidisha Karn/OneDrive/My Code/STIVER SHEET/WEEK 2/DAY 1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
