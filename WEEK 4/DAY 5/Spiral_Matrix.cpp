@@ -24,10 +24,8 @@ vector<int> spiralOrder(vector<vector<int>>& matrix){
         // Traverse top row
         // Left -> Right
         for(int i = left; i <= right; i++){
-
             ans.push_back(matrix[top][i]);
         }
-
         // Top row processed
         // Left -> Right
         top++;
@@ -35,10 +33,8 @@ vector<int> spiralOrder(vector<vector<int>>& matrix){
         // Traverse right column
         // Top -> Bottom
         for(int i = top; i <= bottom; i++){
-
             ans.push_back(matrix[i][right]);
         }
-
         // Right column processed
         // Top -> Bottom
         right--;
