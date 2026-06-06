@@ -2,11 +2,11 @@
 using namespace std;
 
 //type-1 : find element at R & C
-int nCr(int n, int r){
+int nCr(int n, int row){
 
     long long res = 1;
 
-    for(int i=0; i<r; i++){
+    for(int i=0; i<row; i++){
 
         res = res * (n - i);
         res = res / (i + 1);
@@ -16,17 +16,17 @@ int nCr(int n, int r){
 }
 
 //type-2 : print nth row
-vector<int> generateRow(int n){
+vector<int> generateRow(int row){
 
     vector<int> ans;
 
     long long res = 1;
 
     ans.push_back(1);
+ 
+    for(int col=1; col<row; col++){
 
-    for(int col=1; col<n; col++){
-
-        res = res * (n-col);
+        res = res * (row-col);
 
         res = res / col;
 
@@ -37,32 +37,37 @@ vector<int> generateRow(int n){
 }
 
 //type-3 : Print Entire Pascal Triangle
-vector<vector<int>> generate(int n){
-
-    vector<vector<int>> ans;
-
-    for(int row=1; row<=n; row++){
-
-        vector<int> temp;
+//generateRow() -> creates one row
+ vector<int> generateRow(int row){
 
         long long res = 1;
+        vector<int> ans;
 
-        temp.push_back(1);
+        ans.push_back(1);
 
         for(int col=1; col<row; col++){
 
             res = res * (row-col);
-
             res = res / col;
 
-            temp.push_back(res);
+            ans.push_back(res);
         }
 
-        ans.push_back(temp);
+        return ans;
     }
 
-    return ans;
-}
+    //generate() -> creates entire triangle
+    vector<vector<int>> generate(int numRows) {
+
+        vector<vector<int>> ans;
+
+        for(int row=1; row<=numRows; row++){
+
+            ans.push_back(generateRow(row));
+        }
+
+        return ans;
+    }
 int main(){
 
     int row, col;
