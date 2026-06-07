@@ -16,6 +16,7 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
         int end = intervals[i][1];
 
         // Interval already merged
+        //Current interval is already covered by a previously merged interval.Skip it.
         if(!ans.empty() && end <= ans.back()[1]){
             continue;
         }
@@ -23,8 +24,12 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
         // Try to merge with all overlapping intervals
         for(int j=i+1; j<n; j++){
 
+            /*Does next interval start before current merged interval ends?
+              YES → overlap
+              NO  → no overlap*/
             if(intervals[j][0] <= end){
 
+                //Extend merged interval as far as possible.
                 end = max(end, intervals[j][1]);
             }
 
@@ -52,19 +57,16 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
 
         // First interval
         if(ans.empty()){
-
             ans.push_back(intervals[i]);
         }
 
         // Overlap exists
         else if(intervals[i][0] <= ans.back()[1]){
-
             ans.back()[1] = max(ans.back()[1], intervals[i][1]);
         }
 
         // No overlap
         else{
-
             ans.push_back(intervals[i]);
         }
     }
