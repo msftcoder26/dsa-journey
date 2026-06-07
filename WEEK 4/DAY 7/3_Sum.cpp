@@ -84,21 +84,15 @@ vector<vector<int>> threeSum(vector<int>& nums) {
         int k = n - 1;
 
         while(j < k){
-
             long long sum = nums[i] + nums[j] + nums[k];
 
             if(sum < 0){
-
                 j++;
             }
-
             else if(sum > 0){
-
                 k--;
             }
-
             else{
-
                 ans.push_back({nums[i], nums[j], nums[k]});
 
                 j++;
@@ -119,6 +113,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 
     return ans;
 }
+
 int main(){
 
     int n;
