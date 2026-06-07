@@ -36,30 +36,24 @@ vector<int> majorityElement(vector<int>& nums) {
 }
 
 //better
-vector<int> majorityElement(vector<int>& nums) {
+vector<int> majorityElement(vector<int>& nums){
+
+    vector<int> ls;
+    map<int,int> mpp;
 
     int n = nums.size();
+    int mini = (int)(n/3) + 1;
 
-    unordered_map<int,int> mp;
-
-    vector<int> ans;
-
-    // Count frequency
     for(int i=0; i<n; i++){
 
-        mp[nums[i]]++;
-    }
+       mpp[nums[i]]++;
 
-    // Check frequency > n/3
-    for(auto it : mp){
-
-        if(it.second > n/3){
-
-            ans.push_back(it.first);
+       if(mpp[nums[i]] == mini){
+            ls.push_back(nums[i]);
         }
-    }
 
-    return ans;
+        if(ls.size() == 2) break;
+    }
 }
 
 //optimal
