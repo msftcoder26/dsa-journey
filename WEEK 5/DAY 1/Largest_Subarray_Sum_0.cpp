@@ -40,6 +40,7 @@ int maxLen(vector<int>& arr){
             maxi = i + 1;
         }
 
+        //length of zero sum subarray = current index(i) - prev index(mp[sum])
         // Same prefix sum seen before
         else if(mp.find(sum) != mp.end()){
             maxi = max(maxi, i - mp[sum]);
