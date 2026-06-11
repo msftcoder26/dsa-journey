@@ -24,8 +24,7 @@ bool search(vector<int>& nums, int target){
 
         if(nums[low] <= nums[mid]){
 
-            if(nums[low] <= target &&
-               target <= nums[mid]){
+            if(nums[low] <= target && target <= nums[mid]){
                 high = mid - 1;
             }
             else{
@@ -34,8 +33,7 @@ bool search(vector<int>& nums, int target){
         }
         else{
 
-            if(nums[mid] <= target &&
-               target <= nums[high]){
+            if(nums[mid] <= target && target <= nums[high]){
                 low = mid + 1;
             }
             else{
