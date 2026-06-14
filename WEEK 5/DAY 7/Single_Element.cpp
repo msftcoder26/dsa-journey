@@ -1,18 +1,71 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//brute
 int singleNonDuplicate(vector<int>& nums){
 
     int n = nums.size();
 
-    if(n == 1) 
+    if(n == 1){
         return nums[0];
+    }
 
-    if(nums[0] != nums[1])
+    for(int i = 0; i < n; i++){
+
+        // First element
+        if(i == 0){
+            if(nums[i] != nums[i + 1]){
+                return nums[i];
+            }
+        }
+
+        // Last element
+        else if(i == n - 1){
+            if(nums[i] != nums[i - 1]){
+                return nums[i];
+            }
+        }
+
+        // Middle elements
+        else{
+            if(nums[i] != nums[i - 1] &&
+               nums[i] != nums[i + 1]){
+
+                return nums[i];
+            }
+        }
+    }
+    return -1;
+}
+
+//better
+int singleNonDuplicate(vector<int>& nums){
+
+    int xr = 0;
+
+    for(int num : nums){
+        xr ^= num;
+    }
+
+    return xr;
+}
+
+//optimal
+int singleNonDuplicate(vector<int>& nums){
+
+    int n = nums.size();
+
+    if(n == 1){
         return nums[0];
+    }
 
-    if(nums[n-1] != nums[n-2]) 
+    if(nums[0] != nums[1]){
+        return nums[0];
+    }
+
+    if(nums[n-1] != nums[n-2]){
         return nums[n-1];
+    }
 
     int low = 1;
     int high = n - 2;
@@ -46,7 +99,7 @@ int main(){
 
     vector<int> nums(n);
 
-    for(int i=0; i<n; i++){
+    for(int i = 0; i < n; i++){
         cin >> nums[i];
     }
 
