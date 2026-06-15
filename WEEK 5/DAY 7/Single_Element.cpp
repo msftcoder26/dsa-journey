@@ -74,13 +74,18 @@ int singleNonDuplicate(vector<int>& nums){
 
         int mid = low + (high - low)/2;
 
+        //not equivalent to left
         if(nums[mid] != nums[mid-1] &&
+            //not equivalent to right
            nums[mid] != nums[mid+1]){
 
             return nums[mid];
         }
 
+        //standing at odd index and left half is equal
         if((mid % 2 == 1 && nums[mid] == nums[mid-1]) ||
+
+           //standing at even index and right half is equal 
            (mid % 2 == 0 && nums[mid] == nums[mid+1])){
 
             low = mid + 1;
