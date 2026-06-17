@@ -24,9 +24,9 @@ int countSt(vector<int>& arr, int barrier){
 
 int bookAllocation(vector<int>& arr, int totalStudents){
 
-    int totalarr = arr.size();
+    int totalBook = arr.size();
 
-    if(totalStudents > totalarr){
+    if(totalStudents > totalBook){
         return -1;
     }
 
