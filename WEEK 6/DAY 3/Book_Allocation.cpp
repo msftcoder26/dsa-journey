@@ -64,10 +64,10 @@ int main(){
         cin >> arr[i];
     }
 
-    int m;
-    cin >> m;
+    int totalStudents;
+    cin >> totalStudents;
 
-    cout << bookAllocation(arr, m);
+    cout << bookAllocation(arr, totalStudents);
 
     return 0;
 }
