@@ -22,9 +22,28 @@ vector<int> findPeakGrid(vector<vector<int>>& mat){
             }
         }
 
-        int left = (mid - 1 >= 0) ? mat[maxRow][mid - 1] : -1;
+        /*TERNARY OPERATOR
+        value = condition ? value1 : value2;*/
+        
+        /*int left;
+        if(mid-1 >= 0)
+        left = mat[maxRow][mid-1];
+        else
+        left = -1;*/
+        int left = (mid - 1 >= 0) 
+        ? mat[maxRow][mid - 1] 
+        : -1;
 
-        int right = (mid + 1 < m) ? mat[maxRow][mid + 1] : -1;
+        /*int right;
+        if(mid + 1 < m){
+        right = mat[maxRow][mid + 1];
+        }
+        else{
+        right = -1;
+        }*/
+        int right = (mid + 1 < m) 
+        ? mat[maxRow][mid + 1] 
+        : -1;
 
         if(mat[maxRow][mid] > left && mat[maxRow][mid] > right){
             return {maxRow, mid};
