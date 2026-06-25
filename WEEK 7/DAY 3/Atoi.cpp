@@ -6,11 +6,13 @@ int myAtoi(string s) {
     int i = 0;
     int n = s.size();
 
+    //skip space
     while(i < n && s[i] == ' '){
         i++;
     }
 
-    int sign = 1;
+    //sign check
+    int sign = 1; //default positive number
 
     if(i < n && (s[i] == '+' || s[i] == '-')){
 
@@ -20,6 +22,7 @@ int myAtoi(string s) {
         i++;
     }
 
+    //make actual no.
     long long ans = 0;
 
     while(i < n && isdigit(s[i])){
