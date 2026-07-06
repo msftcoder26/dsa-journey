@@ -26,7 +26,6 @@ Node* removeNthFromEnd(Node* head, int n){
     }
 
     while(fast != nullptr){
-
         slow = slow->next;
         fast = fast->next;
     }
