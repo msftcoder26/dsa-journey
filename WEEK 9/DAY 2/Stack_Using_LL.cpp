@@ -17,7 +17,6 @@ private:
     Node* top;
 
 public:
-
     Stack(){
         top = nullptr;
     }
